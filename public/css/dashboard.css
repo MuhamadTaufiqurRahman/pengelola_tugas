@@ -1,0 +1,191 @@
+body {
+    background: rgb(0, 0, 0);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.dashboard-card {
+    background: rgb(31, 41, 55);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Ganti text di dropdown */
+.dataTables_wrapper select option {
+    color: #000000;
+}
+
+.stat-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    border: 2px solid;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.task-card {
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    position: relative;
+}
+
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Sistem border-left yang lebih baik */
+.task-card.with-department {
+    position: relative;
+}
+
+/* Border untuk departemen (hanya tampil jika tidak ada warning) */
+.task-card.with-department:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+/* Warna berdasarkan departemen */
+.department-super-admin:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    background-color: #ef4444 !important;
+    /* Merah untuk Super Admin */
+}
+
+.department-information-technology:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    background-color: #9ca3af !important;
+    /* Abu-abu untuk Information Technology */
+}
+
+.department-default:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    background-color: #6b7280 !important;
+    /* Abu-abu gelap default */
+}
+
+/* Warna lain untuk departemen lainnya */
+.department-human-resources:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    background-color: #3b82f6 !important;
+}
+
+.department-finance:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    background-color: #10b981 !important;
+}
+
+.department-marketing:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    background-color: #8b5cf6 !important;
+}
+
+.department-operations:not(.overdue-warning):not(.due-today-warning):not(.due-soon-warning):not(.completed-task)::before {
+    background-color: #f59e0b !important;
+}
+
+/* CSS untuk warning - PRIORITAS TERTINGGI */
+.overdue-warning {
+    border-left: 4px solid #ef4444 !important;
+    animation: pulse-overdue 1.5s infinite;
+}
+
+.due-today-warning {
+    border-left: 4px solid #e4e72b !important;
+}
+
+.due-soon-warning {
+    border-left: 4px solid #e4e72b !important;
+}
+
+.completed-task {
+    border-left: 4px solid #01d135 !important;
+}
+
+/* Pastikan border-left untuk warning lebih spesifik */
+.task-card.overdue-warning,
+.task-card.due-today-warning,
+.task-card.due-soon-warning,
+.task-card.completed-task {
+    border-left-width: 4px !important;
+    border-left-style: solid !important;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.filter-badge {
+    background: #f0f9ff;
+    border: 1px solid #bbdefb;
+    color: #1976d2;
+}
+
+.task-status-badge {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-pending {
+    background: #c9c8c8;
+    color: #000000;
+}
+
+.status-in_progress {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.status-review {
+    background: #FEF9C3;
+    ;
+    color: #854D0E;
+
+}
+
+.status-completed {
+    background: #e8f5e9;
+    color: #27ae60;
+}
+
+@keyframes pulse-overdue {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 0 5px rgba(239, 68, 68, 0);
+    }
+}
+
+.deadline-overdue {
+    color: #dc2626 !important;
+    font-weight: bold;
+}
+
+.deadline-soon {
+    color: #d97706 !important;
+    font-weight: bold;
+}
+
+.deadline-today {
+    color: #ea580c !important;
+    font-weight: bold;
+}
