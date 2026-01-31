@@ -208,7 +208,7 @@
                 <!-- Submit Buttons -->
                 <div class="flex justify-end space-x-4 pt-6 border-t">
                     <a href="{{ route('tasks.index') }}"
-                        class="px-6 py-3 border border-gray-300 text-white rounded-lg hover:bg-gray-600">
+                        class="px-6 py-3 border border-gray-800 text-black rounded-lg hover:text-white hover:bg-gray-600">
                         Cancel
                     </a>
                     <button type="submit" class="btn-primary px-6 py-3 text-white rounded-lg font-semibold">
