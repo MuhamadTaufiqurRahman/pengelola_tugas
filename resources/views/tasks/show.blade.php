@@ -12,17 +12,16 @@
 
 <body class="p-4">
     <!-- Navigation -->
-    <nav class="bg-gray-800 rounded-2xl shadow-lg mb-6">
+    <nav class="bg-white rounded-2xl shadow-lg mb-6">
         <div class="max-w mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-between items-center gap-3 py-3">
                 <!-- Logo & Title -->
                 <div class="flex items-center min-w-0 flex-1">
                     <div
                         class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg md:rounded-xl overflow-hidden mr-3">
-                        <img src="{{ asset('img/logo.webp') }}" class="w-full h-full object-contain p-1"
-                            alt="Logo">>
+                        <img src="{{ asset('img/logo.png') }}" class="w-full h-full object-contain p-1" alt="Logo">>
                     </div>
-                    <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                    <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-black truncate">
                         Task Manager
                     </h1>
                 </div>
@@ -31,7 +30,7 @@
                 <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                     <!-- User Name (hide on very small screens) -->
                     <span
-                        class="xs:inline text-white font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
+                        class="xs:inline text-black font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
                         <i class="bi bi-person-circle mr-1 sm:mr-2"></i>
                         {{ Str::limit(Auth::user()->name, 15) }}
                     </span>
@@ -58,8 +57,8 @@
             <div class="flex justify-between items-center mb-8">
                 <div class="flex items-center">
                     <h1 class="text-3xl font-bold">
-                        <i class="bi bi-file-text text-purple-600 mr-3">
-                            <a class="font-semibold text-white">
+                        <i class="bi bi-file-text text-black mr-3">
+                            <a class="font-semibold text-black">
                                 Details
                             </a>
                         </i>
@@ -70,7 +69,7 @@
             <!-- Task Title -->
             <div class="mb-8">
                 <h2 class="text-4xl font-bold text-purple-600 mb-3">{{ $task->title }}</h2>
-                <div class="flex items-center text-white">
+                <div class="flex items-center text-black">
                     <i class="bi bi-building mr-2"></i>
                     <span class="font-medium">{{ $task->departement->name ?? 'No departments available' }}</span>
                     <span class="mx-3">•</span>
@@ -83,44 +82,44 @@
                 <!-- Left Column: Description & Timeline -->
                 <div class="lg:col-span-2 space-y-8">
                     <!-- Description Card -->
-                    <div class="bg-gray-600 rounded-2xl shadow-lg p-6">
+                    <div class="bg-gray-200 rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-4">
                             <div
                                 class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="bi bi-card-text text-white text-xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-white">Task Description</h3>
+                            <h3 class="text-2xl font-bold text-black">Task Description</h3>
                         </div>
-                        <div class="bg-gray-400  rounded-xl p-6 min-h-[200px]">
+                        <div class="bg-white  rounded-xl p-6 min-h-[200px]">
                             @if ($task->description)
-                                <p class="text-white text-xl">
+                                <p class="text-black text-xl">
                                     {{ $task->description }}</p>
                             @else
                                 <div class="text-center py-12">
-                                    <i class="bi bi-card-text text-5xl text-gray-300 mb-4"></i>
-                                    <p class="text-white text-xl">No description available</p>
+                                    <i class="bi bi-card-text text-5xl text-black mb-4"></i>
+                                    <p class="text-black text-xl">No description available</p>
                                 </div>
                             @endif
                         </div>
                     </div>
 
                     <!-- Timeline -->
-                    <div class="bg-gray-600 rounded-2xl shadow-lg p-6">
+                    <div class="bg-gray-200 rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-6">
                             <div
                                 class="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="bi bi-clock-history text-white text-xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-white">Timeline</h3>
+                            <h3 class="text-2xl font-bold text-black">Timeline</h3>
                         </div>
                         <div class="space-y-6">
                             <div class="flex items-center">
-                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="bi bi-calendar3 text-blue-600 text-xl"></i>
+                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="bi bi-calendar3 text-white text-xl"></i>
                                 </div>
                                 <div>
-                                    <p class="text-lg text-white">Start Date</p>
-                                    <p class="text-lg font-semibold text-gray-800">
+                                    <p class="text-lg text-black">Start Date</p>
+                                    <p class="text-lg font-semibold text-black">
                                         {{ $task->start_date ? $task->start_date->format('d F Y') : 'Belum ditentukan' }}
                                     </p>
                                 </div>
@@ -259,7 +258,7 @@
                                     <i class="bi {{ $config['icon'] }} {{ $config['text'] }} text-xl"></i>
                                 </div>
                                 <div class="flex-1">
-                                    <p class="text-lg text-white">Due Date</p>
+                                    <p class="text-lg text-black">Due Date</p>
 
                                     <div class="flex items-center flex-wrap gap-2">
                                         <p class="text-lg font-semibold {{ $config['text'] }}">
@@ -318,19 +317,19 @@
                 <!-- Right Column: Information & Progress -->
                 <div class="space-y-8">
                     <!-- Information Card -->
-                    <div class="bg-gray-600 rounded-2xl shadow-lg p-6">
+                    <div class="bg-gray-200 rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-6">
                             <div
                                 class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="bi bi-info-circle text-white text-xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Information</h3>
+                            <h3 class="text-2xl font-bold text-black">Information</h3>
                         </div>
 
                         <div class="space-y-6">
                             <!-- Status -->
-                            <div class="info-card bg-gray-500 border-l-blue-500 p-4">
-                                <p class="text-x text-white mb-2 flex items-center">
+                            <div class="info-card bg-white border-l-blue-500 p-4">
+                                <p class="text-x text-black mb-2 flex items-center">
                                     <i class="bi bi-circle-fill mr-2"></i>Status
                                 </p>
                                 <span class="status-badge status-{{ $task->status }}">
@@ -349,8 +348,8 @@
                             </div>
 
                             <!-- Priority Info -->
-                            <div class="info-card bg-gray-500 border-l-{{ $task->priority_color }}-500 p-4">
-                                <p class="text-x text-white mb-4 flex items-center">
+                            <div class="info-card bg-white border-l-{{ $task->priority_color }}-500 p-4">
+                                <p class="text-x text-black mb-4 flex items-center">
                                     <i class="bi bi-flag mr-2"></i>Priority
                                 </p>
                                 <span
@@ -366,7 +365,7 @@
                                         Urgent
                                     @endif
                                 </span>
-                                <p class="text-x text-white mt-4">
+                                <p class="text-x text-black mt-4">
                                     @if ($task->priority == 1)
                                         ⏳ Not urgent, can be handled later.
                                     @elseif($task->priority == 2)
@@ -380,35 +379,35 @@
                             </div>
 
                             <!-- Department -->
-                            <div class="info-card bg-gray-500 border-l-green-500 p-4">
-                                <p class="text-sm text-white mb-2 flex items-center">
+                            <div class="info-card bg-white border-l-green-500 p-4">
+                                <p class="text-sm text-black mb-2 flex items-center">
                                     <i class="bi bi-building mr-2"></i>Department
                                 </p>
-                                <p class="text-lg font-semibold text-white">
+                                <p class="text-lg font-semibold text-black">
                                     {{ $task->departement->name ?? 'Tidak ada departemen' }}
                                 </p>
                             </div>
 
                             <!-- Assignees -->
-                            <div class="info-card bg-gray-500 border-l-purple-500 p-4">
-                                <p class="text-sm text-white mb-3 flex items-center">
+                            <div class="info-card bg-white border-l-purple-500 p-4">
+                                <p class="text-sm text-black mb-3 flex items-center">
                                     <i class="bi bi-people mr-2"></i>Assigned to
                                 </p>
                                 <div class="flex flex-wrap gap-2">
                                     @foreach ($task->assignees as $assignee)
-                                        <div class="flex items-center bg-gray-500 border rounded-lg px-3 py-2">
+                                        <div class="flex items-center bg-blue-300 border rounded-lg px-3 py-2">
                                             @if ($assignee->id == Auth::id())
-                                                <i class="bi bi-person-check text-white mr-2"></i>
+                                                <i class="bi bi-person-check text-black mr-2"></i>
                                             @else
-                                                <i class="bi bi-person text-white mr-2"></i>
+                                                <i class="bi bi-person text-black mr-2"></i>
                                             @endif
-                                            <span class="font-medium text-xl text-white">{{ $assignee->name }}</span>
+                                            <span class="font-medium text-xl text-black">{{ $assignee->name }}</span>
                                         </div>
                                     @endforeach
                                     @if ($task->assignees->isEmpty())
                                         <div class="text-center w-full py-3">
-                                            <i class="bi bi-person-x text-3xl text-gray-300 mb-2"></i>
-                                            <p class="text-gray-50">No assignee yet</p>
+                                            <i class="bi bi-person-x text-3xl text-blue-300 mb-2"></i>
+                                            <p class="text-black">No assignee yet</p>
                                         </div>
                                     @endif
                                 </div>
@@ -417,8 +416,8 @@
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="bg-gray-600 rounded-2xl shadow-lg p-6">
-                        <h3 class="text-xl font-bold text-white mb-4">Action</h3>
+                    <div class="bg-gray-200 rounded-2xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-black mb-4">Action</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             @if ($task->status === 'completed')
                                 <div
@@ -428,7 +427,7 @@
                                 </div>
                             @else
                                 <a href="{{ route('tasks.edit', $task) }}"
-                                    class="flex items-center justify-center border border-blue-800 bg-blue-400 text-blue-800 hover:bg-blue-100 rounded-xl p-4 transition">
+                                    class="flex items-center justify-center border border-blue-800 bg-blue-400 text-black hover:text-blue-800 hover:bg-blue-100 rounded-xl p-4 transition">
                                     <i class="bi bi-pencil text-xl mr-3"></i>
                                     <span class="font-medium">Update Task</span>
                                 </a>
@@ -440,13 +439,13 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="w-full flex items-center justify-center border border-red-800 bg-red-400 text-red-800 hover:bg-red-100 rounded-xl p-4 transition">
+                                    class="w-full flex items-center justify-center border border-red-800 bg-red-400 text-black hover:text-red-800 hover:bg-red-100 rounded-xl p-4 transition">
                                     <i class="bi bi-trash text-xl mr-3"></i>
                                     <span class="font-medium">Deleted Task</span>
                                 </button>
                             </form>
                             <a href="{{ route('tasks.index') }}"
-                                class="sm:col-span-2 flex items-center justify-center bg-gray-50 text-gray-700 hover:bg-gray-100 rounded-xl p-4 transition">
+                                class="sm:col-span-2 flex items-center justify-center border border-gray-800 bg-white text-black hover:text-gray-800 hover:bg-gray-400 rounded-xl p-4 transition">
                                 <i class="bi bi-arrow-left text-xl mr-3"></i>
                                 <span class="font-medium">Back to Dashboard</span>
                             </a>

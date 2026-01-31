@@ -1,11 +1,10 @@
 body {
-    background: rgb(0, 0, 0);
+    background: rgb(209, 209, 209);
     min-height: 100vh;
-    font-family: 'Inter', sans-serif;
 }
 
 .form-card {
-    background: rgb(31, 41, 55);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);

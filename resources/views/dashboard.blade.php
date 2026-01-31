@@ -32,17 +32,17 @@
     <!-- Main Content -->
     <div class="max-w mx-auto">
         <!-- Navigation -->
-        <nav class="bg-gray-800 rounded-2xl shadow-lg mb-6">
+        <nav class="bg-gray-100 rounded-2xl shadow-lg mb-6">
             <div class="max-w mx-auto px-3 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-between items-center gap-3 py-3">
                     <!-- Logo & Title -->
                     <div class="flex items-center min-w-0 flex-1">
                         <div
                             class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg md:rounded-xl overflow-hidden mr-3">
-                            <img src="{{ asset('img/logo.webp') }}" class="w-full h-full object-contain p-1"
+                            <img src="{{ asset('img/logo.png') }}" class="w-full h-full object-contain p-1"
                                 alt="Logo">
                         </div>
-                        <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                        <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-Black truncate">
                             Task Manager
                         </h1>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                         <!-- User Name (hide on very small screens) -->
                         <span
-                            class="xs:inline text-white font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
+                            class="xs:inline text-black font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
                             <i class="bi bi-person-circle mr-1 sm:mr-2"></i>
                             {{ Str::limit(Auth::user()->name, 15) }}
                         </span>
@@ -75,12 +75,12 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                 <!-- Title & Subtitle -->
                 <div class="flex-1 min-w-0">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center">
-                        <i class="bi bi-list-task text-white mr-2 sm:mr-3 flex-shrink-0"></i>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-black flex items-center">
+                        <i class="bi bi-list-task text-black mr-2 sm:mr-3 flex-shrink-0"></i>
                         <span class="truncate">Task Dashboard</span>
 
                     </h2>
-                    <p class="text-white mt-1 sm:mt-2 sm:ml-12 text-sm sm:text-base">
+                    <p class="text-black mt-1 sm:mt-2 sm:ml-12 text-sm sm:text-base">
                         Manage and track your task progress
                     </p>
 
@@ -104,10 +104,10 @@
                         <p class="text-purple-600 text-sm">Task Count</p>
                     </div>
                 </div>
-                <div class="stat-card border-white">
+                <div class="stat-card border-gray-600">
                     <div class="p-4 text-center">
-                        <div class="text-3xl font-bold text-white mb-1">{{ $stats['pending'] }}</div>
-                        <p class="text-white text-sm">Pending</p>
+                        <div class="text-3xl font-bold text-gray-600 mb-1">{{ $stats['pending'] }}</div>
+                        <p class="text-gray-600 text-sm">Pending</p>
                     </div>
                 </div>
                 <div class="stat-card border-blue-500">
@@ -211,12 +211,12 @@
             @endif
 
             <!-- Filter Section -->
-            <div class="mb-6 p-4 bg-gray-600 rounded-xl shadow">
+            <div class="mb-6 p-4 bg-gray-200 rounded-xl shadow">
                 <form method="GET" action="{{ route('tasks.index') }}" id="filterForm" class="space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <!-- Status Filter -->
                         <div>
-                            <label class="block text-sm font-medium text-white mb-1">Status</label>
+                            <label class="block text-sm font-medium text-black mb-1">Status</label>
                             <select name="status" id="statusSelect"
                                 class="w-full px-3 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent">
                                 <option value="all">All Statuses</option>
@@ -234,7 +234,7 @@
 
                         <!-- Priority Filter -->
                         <div>
-                            <label class="block text-sm font-medium text-white mb-1">Priority</label>
+                            <label class="block text-sm font-medium text-black mb-1">Priority</label>
                             <select name="priority" id="prioritySelect"
                                 class="w-full px-3 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                                 <option value="all">All Priority</option>
@@ -250,7 +250,7 @@
 
                         <!-- Departemen Filter - STYLE SAMA DENGAN EDIT.BLADE -->
                         <div>
-                            <label class="block text-sm font-medium text-white mb-1">
+                            <label class="block text-sm font-medium text-black mb-1">
                                 Department
                             </label>
                             <select name="departement" id="departementSelect"
@@ -298,7 +298,7 @@
 
                         <!-- SORTING SELECT - TAMBAHKAN INI -->
                         <div>
-                            <label class="block text-sm font-medium text-white mb-1">Sort By</label>
+                            <label class="block text-sm font-medium text-black mb-1">Sort By</label>
                             <select name="sort_by" id="sortSelect"
                                 class="w-full px-3 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                                 <option value="created_at_desc"
@@ -328,7 +328,7 @@
                         <!-- Reset Button -->
                         <div class="flex items-end">
                             <a href="{{ route('tasks.index') }}"
-                                class="w-full px-4 py-3 bg-gray-200 text-black rounded-lg hover:bg-gray-300 transition text-center">
+                                class="w-full px-4 py-3 bg-gray-50 text-black rounded-lg hover:bg-red-300 transition text-center">
                                 <i class="bi bi-arrow-clockwise mr-2"></i>Reset All
                             </a>
                         </div>
@@ -337,7 +337,7 @@
             </div>
 
             <div class="flex justify-between items-center">
-                <div class="text-sm text-white font-semibold">
+                <div class="text-sm text-black font-semibold">
                     Total found: <span class="font-bold">{{ $tasks->total() }}</span> Task Entries
                 </div>
             </div>
@@ -358,21 +358,18 @@
             </div>
         @else
             <!-- Tasks Table -->
-            <div class="mb-8 bg-gray-800 text-white font-bold rounded-xl shadow-lg overflow-hidden">
+            <div class="mb-8 bg-white text-black font-bold rounded-xl shadow-lg overflow-hidden">
                 <div class="overflow-x-auto">
                     <table id="tasks-table" class="w-full">
-                        <thead class="bg-gray-800">
+                        <thead class="bg-gray-200">
                             <tr>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">No</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Task Title</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Description</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Department</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Priority</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Status</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Start Date</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Due Date</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Notes</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Assignees</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Actions</th>
                             </tr>
                         </thead>
@@ -431,7 +428,7 @@
                                     // Warna berdasarkan status
                                     $statusColor = 'text-white';
                                     if ($task->status == 'pending') {
-                                        $statusColor = 'text-white bg-gray-600 border-white';
+                                        $statusColor = 'text-white bg-gray-400 border-gray-800';
                                     } elseif ($task->status == 'in_progress') {
                                         $statusColor = 'text-white bg-blue-600 border-blue-800';
                                     } elseif ($task->status == 'review') {
@@ -441,33 +438,26 @@
                                     }
                                 @endphp
 
-                                <tr class="border border-black hover:bg-gray-600 transition duration-150">
+                                <tr class="border border-gray-800 hover:bg-gray-400 transition duration-150">
                                     <!-- Nomor Urut -->
-                                    <td class="py-4 px-6 text-center text-xl border-b-4 border-black">
+                                    <td class="py-4 px-6 text-center text-xl border-b-4 border-gray-400">
                                         <div class="font-medium">{{ $counter }}</div>
                                     </td>
 
                                     <!-- Task Title -->
-                                    <td class="py-4 px-6 text-x border-b-4 border-black">
+                                    <td class="py-4 px-6 text-x border-b-4 border-gray-400">
                                         <div class="font-medium">{{ $task->title }}</div>
                                     </td>
 
-                                    <!-- Description -->
-                                    <td class="py-4 px-6 text-x border-b-4 border-black">
-                                        <div class="text-x max-w-xs truncate">
-                                            {{ $task->description ?? '-' }}
-                                        </div>
-                                    </td>
-
                                     <!-- Department -->
-                                    <td class="py-4 px-6 text-x border-b-4 border-black">
+                                    <td class="py-4 px-6 text-x border-b-4 border-gray-400">
                                         <div class="text-x max-w-xs">
                                             {{ $task->departement->name ?? '-' }}
                                         </div>
                                     </td>
 
                                     <!-- Priority -->
-                                    <td class="py-4 px-6 border-b-4 border-black">
+                                    <td class="py-4 px-6 border-b-4 border-gray-400">
                                         <span
                                             class="px-3 py-1 rounded-full text-x border font-semibold font-medium {{ $priorityColor }} min-w-[80px] text-center inline-block">
                                             @if ($task->priority == 1)
@@ -485,7 +475,7 @@
                                     </td>
 
                                     <!-- Status -->
-                                    <td class="py-4 px-6 border-b-4 border-black">
+                                    <td class="py-4 px-6 border-b-4 border-gray-400">
                                         <span
                                             class="px-3 py-1 rounded-full text-x font-medium {{ $statusColor }} min-w-[100px] text-center inline-block">
                                             @if ($task->status == 'pending')
@@ -501,84 +491,47 @@
                                     </td>
 
                                     <!-- Start Date -->
-                                    <td class="py-4 px-6 border-b-4 border-black">
-                                        <div class="text-white font-semibold text-x">
+                                    <td class="py-4 px-6 border-b-4 border-gray-400">
+                                        <div class="text-black font-semibold text-x">
                                             {{ $task->start_date ? $task->start_date->format('d-m-Y') : '-' }}
                                         </div>
                                     </td>
 
                                     <!-- Due Date -->
-                                    <td class="py-4 px-6 border-b-4 border-black">
+                                    <td class="py-4 px-6 border-b-4 border-gray-400">
                                         @if ($task->status == 'completed')
                                             <div class="text-green-600 text-x font-medium font-semibold">
                                                 {{ $task->due_date ? $task->due_date->format('d-m-Y') : '-' }}
                                             </div>
                                         @else
                                             <div
-                                                class="{{ $isOverdue ? 'text-red-600 text-x font-medium font-semibold' : ($isToday ? 'text-yellow-600 text-x font-medium font-semibold' : ($isDueSoon ? 'text-yellow-600 text-x font-medium font-semibold' : 'text-white text-x font-semibold')) }}">
+                                                class="{{ $isOverdue ? 'text-red-600 text-x font-medium font-semibold' : ($isToday ? 'text-yellow-600 text-x font-medium font-semibold' : ($isDueSoon ? 'text-yellow-600 text-x font-medium font-semibold' : 'text-blue-800 text-x font-semibold')) }}">
                                                 {{ $task->due_date ? $task->due_date->format('d-m-Y') : '-' }}
                                             </div>
                                         @endif
 
                                     </td>
 
-                                    <!-- Note -->
-                                    <td class="py-4 px-6 font-semibold border-b-4 border-black">
-                                        <div>
-                                            @if ($isOverdue)
-                                                <div class="text-x mt-1 text-red-600">Overdue by {{ $daysRemaining }}
-                                                    days</div>
-                                            @elseif($isToday)
-                                                <div class="text-x mt-1 text-yellow-600">Due today</div>
-                                            @elseif($isDueSoon)
-                                                <div class="text-x mt-1 text-yellow-600">Due in {{ $daysRemaining }}
-                                                    days</div>
-                                            @else
-                                                @if ($task->status == 'completed')
-                                                    <div class="text-x mt-1 text-green-600">Task is Completed</div>
-                                                @else
-                                                    <div class="text-x mt-1 text-white">On track - deadline is not
-                                                        urgent
-                                                        yet</div>
-                                                @endif
-                                            @endif
-                                        </div>
-                                    </td>
-
-                                    <!-- Assignees -->
-                                    <td class="py-4 px-6 border-b-4 border-black">
-                                        <div class="text-white text-x font-semibold">
-                                            @foreach ($task->assignees as $assignee)
-                                                <div class="mb-1">-
-                                                    {{ Str::limit($assignee->name, 20) }}
-                                                    @if ($assignee->id == Auth::id())
-                                                        <span class="text-green-600 text-xs ml-1">(You)</span>
-                                                    @endif
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </td>
-
                                     <!-- Actions -->
-                                    <td class="py-4 px-6 border-b-4 border-black">
+                                    <td class="py-4 px-6 border-b-4 border-gray-400">
                                         <div class="flex space-x-2">
                                             <a href="{{ route('tasks.show', $task) }}"
-                                                class="rounded-full border border-blue-600 px-3 py-1 text-blue-600 hover:text-blue-800 text-x font-medium"
+                                                class="rounded-lg border border-blue-600 px-3 py-1 text-blue-600 hover:bg-blue-600 hover:text-white text-x font-medium"
                                                 title="View Details">
-                                                View
+                                                <i class="bi bi-eye text-xl"></i>
                                             </a>
 
                                             @if ($task->status == 'completed')
                                                 <a href="{{ route('tasks.edit', $task) }}"
-                                                    class="rounded-full border border-green-700 px-3 py-1 text-green-700 hover: text-green-600 text-x font-medium"
+                                                    class="rounded-lg border border-green-700 px-3 py-1 text-green-700 hover:bg-green-700 hover:text-white text-x font-medium"
                                                     title="Edit">
-                                                    Edit
+                                                    <i class="bi bi-pencil text-xl"></i>
                                                 </a>
                                             @else
                                                 <a href="{{ route('tasks.edit', $task) }}"
-                                                    class="rounded-full border border-yellow-600 px-3 py-1 text-yellow-600 hover:text-yellow-800 text-x font-medium"
+                                                    class="rounded-lg border border-yellow-600 px-3 py-1 text-yellow-600 hover:bg-yellow-600 hover:text-white text-x font-medium"
                                                     title="Edit">
-                                                    Edit
+                                                    <i class="bi bi-pencil text-xl"></i>
                                                 </a>
                                             @endif
 
@@ -587,9 +540,9 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                    class="rounded-full border border-red-600 px-3 py-1 text-red-600 hover:text-red-800 text-x font-medium"
+                                                    class="rounded-lg border border-red-600 px-3 py-1 text-red-600 hover:bg-red-600 hover:text-white text-x font-medium"
                                                     title="Delete">
-                                                    Delete
+                                                    <i class="bi bi-trash text-xl"></i>
                                                 </button>
                                             </form>
                                         </div>
@@ -634,7 +587,7 @@
                             },
                             {
                                 "searchable": false,
-                                "targets": [0, 8, 9] // Kolom No, Assignees, Actions tidak bisa di-search
+                                "targets": [0, 7] // Kolom No, Assignees, Actions tidak bisa di-search
                             },
                             {
                                 "className": "dt-center",

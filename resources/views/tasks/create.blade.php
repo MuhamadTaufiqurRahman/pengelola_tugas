@@ -14,17 +14,17 @@
     <div class="max-w mx-auto">
         <!-- Header -->
         <!-- Navigation -->
-        <nav class="bg-gray-800 rounded-2xl shadow-lg mb-6">
+        <nav class="bg-white rounded-2xl shadow-lg mb-6">
             <div class="max-w mx-auto px-3 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-between items-center gap-3 py-3">
                     <!-- Logo & Title -->
                     <div class="flex items-center min-w-0 flex-1">
                         <div
                             class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg md:rounded-xl overflow-hidden mr-3">
-                            <img src="{{ asset('img/logo.webp') }}" class="w-full h-full object-contain p-1"
+                            <img src="{{ asset('img/logo.png') }}" class="w-full h-full object-contain p-1"
                                 alt="Logo">
                         </div>
-                        <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                        <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-black truncate">
                             Task Manager
                         </h1>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                         <!-- User Name (hide on very small screens) -->
                         <span
-                            class="xs:inline text-white font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
+                            class="xs:inline text-black font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
                             <i class="bi bi-person-circle mr-1 sm:mr-2"></i>
                             {{ Str::limit(Auth::user()->name, 15) }}
                         </span>
@@ -56,10 +56,10 @@
         <!-- Form Card -->
         <div class="form-card p-8">
             <div class="flex items-center">
-                <i class="bi bi-plus-circle mr-2 text-white" style="font-size: 25px;"></i>
-                <h1 class="text-2xl font-bold text-white">Create New Task</h1><br>
+                <i class="bi bi-plus-circle mr-2 text-black" style="font-size: 25px;"></i>
+                <h1 class="text-2xl font-bold text-black">Create New Task</h1><br>
             </div>
-            <p class="text-white mt-2">Fill out the form below to create a new task</p>
+            <p class="text-black mt-2">Fill out the form below to create a new task</p>
             <br>
 
             <form action="{{ route('tasks.store') }}" method="POST">
@@ -67,7 +67,7 @@
 
                 <!-- Title -->
                 <div class="mb-6">
-                    <label class="block text-white font-medium mb-2">
+                    <label class="block text-black font-medium mb-2">
                         Task Title <span class="text-red-500">*</span>
                     </label>
                     <input type="text" name="title" required
@@ -80,7 +80,7 @@
 
                 <!-- Description -->
                 <div class="mb-6">
-                    <label class="block text-white font-medium mb-2">
+                    <label class="block text-black font-medium mb-2">
                         Description
                     </label>
                     <textarea name="description" rows="4"
@@ -95,7 +95,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <!-- Priority Field -->
                     <div class="mb-4">
-                        <label for="priority" class="block text-white font-medium mb-2">
+                        <label for="priority" class="block text-black font-medium mb-2">
                             <i class="bi bi-flag mr-2"></i>Priority
                         </label>
                         <select name="priority" id="priority"
@@ -121,7 +121,7 @@
                     </div>
                     <!-- Status -->
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Status <span class="text-red-500">*</span>
                         </label>
                         <select name="status" required
@@ -138,7 +138,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <!-- Start Date -->
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Start Date
                         </label>
                         <input type="date" name="start_date"
@@ -151,7 +151,7 @@
 
                     <!-- Due Date -->
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Due Date
                         </label>
                         <input type="date" name="due_date"
@@ -165,7 +165,7 @@
 
                 <!-- Departement -->
                 <div class="mb-6">
-                    <label class="block text-white font-medium mb-2">
+                    <label class="block text-black font-medium mb-2">
                         Department <span class="text-red-500">*</span>
                     </label>
                     <select name="departement_id" required
@@ -185,9 +185,9 @@
 
                 <!-- Assignees -->
                 <div class="mb-8">
-                    <label class="block text-white font-medium mb-2">
+                    <label class="block text-black font-medium mb-2">
                         Assigned to <span class="text-red-500">*</span>
-                        <span class="text-sm text-white font-normal">(Select at least one user)</span>
+                        <span class="text-sm text-black font-normal">(Select at least one user)</span>
                     </label>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                         @foreach ($users as $user)
@@ -196,7 +196,7 @@
                                 <input type="checkbox" name="assignees[]" value="{{ $user->id }}"
                                     class="mr-3 h-5 w-5 text-purple-600 rounded focus:ring-purple-500"
                                     {{ in_array($user->id, old('assignees', [])) ? 'checked' : '' }}>
-                                <span class="text-white">{{ $user->name }}</span>
+                                <span class="text-black">{{ $user->name }}</span>
                             </label>
                         @endforeach
                     </div>

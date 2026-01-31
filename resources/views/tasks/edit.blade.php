@@ -12,17 +12,16 @@
 
 <body class="p-4">
     <!-- Navigation -->
-    <nav class="bg-gray-800 rounded-2xl shadow-lg mb-6">
+    <nav class="bg-white rounded-2xl shadow-lg mb-6">
         <div class="max-w mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-between items-center gap-3 py-3">
                 <!-- Logo & Title -->
                 <div class="flex items-center min-w-0 flex-1">
                     <div
                         class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg md:rounded-xl overflow-hidden mr-3">
-                        <img src="{{ asset('img/wt_logo.png') }}" class="w-full h-full object-contain p-1"
-                            alt="Logo">
+                        <img src="{{ asset('img/logo.png') }}" class="w-full h-full object-contain p-1" alt="Logo">
                     </div>
-                    <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                    <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-black truncate">
                         Task Manager
                     </h1>
                 </div>
@@ -31,7 +30,7 @@
                 <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                     <!-- User Name (hide on very small screens) -->
                     <span
-                        class="xs:inline text-white font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
+                        class="xs:inline text-black font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
                         <i class="bi bi-person-circle mr-1 sm:mr-2"></i>
                         {{ Str::limit(Auth::user()->name, 15) }}
                     </span>
@@ -55,8 +54,8 @@
         <!-- Form Card -->
         <div class="form-card p-8">
             <div class="flex items-center">
-                <i class="bi bi-pencil mr-2 text-white" style="font-size: 25px;"></i>
-                <h1 class="text-2xl font-bold text-white">Update Task</h1>
+                <i class="bi bi-pencil mr-2 text-black" style="font-size: 25px;"></i>
+                <h1 class="text-2xl font-bold text-black"> Update Task</h1>
             </div>
             <br>
             <form action="{{ route('tasks.update', $task) }}" method="POST">
@@ -65,7 +64,7 @@
 
                 <!-- Title -->
                 <div class="mb-6">
-                    <label class="block text-white font-medium mb-2">
+                    <label class="block text-black font-medium mb-2">
                         Task Title <span class="text-red-500">*</span>
                     </label>
                     <input type="text" name="title" required
@@ -78,7 +77,7 @@
 
                 <!-- Description -->
                 <div class="mb-6">
-                    <label class="block text-white font-medium mb-2">
+                    <label class="block text-black font-medium mb-2">
                         Description
                     </label>
                     <textarea name="description" rows="4"
@@ -93,7 +92,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <!-- Status -->
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Priority <span class="text-red-500">*</span>
                         </label>
                         <select name="priority" required
@@ -113,7 +112,7 @@
                     </div>
                     <!-- Status -->
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Status <span class="text-red-500">*</span>
                         </label>
                         <select name="status" required
@@ -139,7 +138,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <!-- Start Date -->
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Start Date
                         </label>
                         <input type="date" name="start_date"
@@ -152,7 +151,7 @@
 
                     <!-- Due Date -->
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Due Date
                         </label>
                         <input type="date" name="due_date"
@@ -167,7 +166,7 @@
                 <!-- Assignees -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Department <span class="text-red-500">*</span>
                         </label>
                         <select name="departement_id" required
@@ -185,9 +184,9 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="block text-white font-medium mb-2">
+                        <label class="block text-black font-medium mb-2">
                             Assigned to <span class="text-red-500">*</span>
-                            <span class="text-sm text-white font-normal">(Please select at least one user)</span>
+                            <span class="text-sm text-black font-normal">(Please select at least one user)</span>
                         </label>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                             @php
@@ -199,7 +198,7 @@
                                     <input type="checkbox" name="assignees[]" value="{{ $user->id }}"
                                         class="mr-3 h-5 w-5 text-purple-600 rounded focus:ring-purple-500"
                                         {{ in_array($user->id, $assignedUserIds) ? 'checked' : '' }}>
-                                    <span class="text-white">{{ $user->name }}</span>
+                                    <span class="text-black">{{ $user->name }}</span>
                                 </label>
                             @endforeach
                         </div>
@@ -213,7 +212,7 @@
                 <!-- Submit Buttons -->
                 <div class="flex justify-end space-x-4 pt-6 border-t">
                     <a href="{{ route('tasks.index') }}"
-                        class="px-6 py-3 border border-gray-300 text-white rounded-lg hover:bg-gray-600">
+                        class="px-6 py-3 border border-gray-800 text-black rounded-lg hover:text-white hover:bg-gray-600">
                         Cancel
                     </a>
                     <button type="submit" class="btn-primary px-6 py-3 text-white rounded-lg font-semibold">
@@ -239,11 +238,11 @@
     @endif
 
     <!-- Delete Button (Opsional, bisa di bawah form) -->
-    <div class="max-w-6xl mx-auto mt-6">
-        <div class="form-card p-6">
+    <div class="max-w-full mx-auto mt-6">
+        <div class="form-card p-6 bg bg-red-100">
             <!-- Bagian Danger Zone di tengah -->
             <div class="text-center">
-                <h3 class="font-bold text-white mb-4 text-lg">Danger Zone</h3>
+                <h3 class="font-bold text-red-800 mb-4 text-lg">Danger Zone</h3>
 
                 <form action="{{ route('tasks.destroy', $task) }}" method="POST"
                     onsubmit="return confirm('Yakin ingin menghapus tugas ini?')">
@@ -256,7 +255,7 @@
                 </form>
 
                 <!-- Optional: Tambahkan pesan peringatan -->
-                <p class="text-white text-sm mt-3">
+                <p class="text-red-800 text-sm mt-3">
                     Once deleted, this task cannot be recovered.
                 </p>
             </div>
