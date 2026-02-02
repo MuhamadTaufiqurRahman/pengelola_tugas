@@ -47,10 +47,10 @@ class TaskController extends Controller
         if ($request->filled('sort_by') && $request->sort_by !== '') {
             switch ($request->sort_by) {
                 case 'due_date_asc':
-                    $query->orderBy('due_date', 'asc');
+                    $query->orderBy('due_date', 'desc');
                     break;
                 case 'due_date_desc':
-                    $query->orderBy('due_date', 'desc');
+                    $query->orderBy('due_date', 'asc');
                     break;
                 case 'created_at_desc':
                     $query->orderBy('created_at', 'desc');
