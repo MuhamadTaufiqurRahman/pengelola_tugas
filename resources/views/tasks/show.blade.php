@@ -353,7 +353,7 @@
                                     <i class="bi bi-flag mr-2"></i>Priority
                                 </p>
                                 <span
-                                    class="px-4 py-3 border border-yellow-800 rounded-full text-sm font-semibold {{ $task->priority_badge_class }} ">
+                                    class="px-4 py-3 border border-black rounded-full text-sm font-semibold {{ $task->priority_badge_class }} ">
                                     <i class="bi bi-flag mr-2"></i>
                                     @if ($task->priority == 1)
                                         Low
