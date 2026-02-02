@@ -363,14 +363,14 @@
                     <table id="tasks-table" class="w-full">
                         <thead class="bg-gray-200">
                             <tr>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">No</th>
+                                <th class="py-4 px-6 text-xl text-center font-semibold">No</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Task Title</th>
                                 <th class="py-4 px-6 text-left text-xl font-semibold">Department</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Priority</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Status</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Start Date</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Due Date</th>
-                                <th class="py-4 px-6 text-left text-xl font-semibold">Actions</th>
+                                <th class="py-4 px-6 text-center text-xl font-semibold">Priority</th>
+                                <th class="py-4 px-6 text-center text-xl font-semibold">Status</th>
+                                <th class="py-4 px-6 text-center text-xl font-semibold">Start Date</th>
+                                <th class="py-4 px-6 text-center text-xl font-semibold">Due Date</th>
+                                <th class="py-4 px-6 text-center text-xl font-semibold">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
