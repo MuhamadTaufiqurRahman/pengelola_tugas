@@ -301,6 +301,7 @@
                             <label class="block text-sm font-medium text-black mb-1">Sort By</label>
                             <select name="sort_by" id="sortSelect"
                                 class="w-full px-3 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <option value="">-- Default --</option>
                                 <option value="created_at_desc"
                                     {{ request('sort_by') == 'created_at_desc' ? 'selected' : '' }}>
                                     Start Date (New/Old)

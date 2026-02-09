@@ -43,6 +43,14 @@ class TaskController extends Controller
             $query->where('created_by', $request->departement);
         }
 
+        // Always push completed to bottom
+        $query->orderByRaw("
+            CASE
+                WHEN status = 'completed' THEN 1
+                ELSE 0
+            END
+        ");
+
         // SORTING - dengan handle jika kosong
         if ($request->filled('sort_by') && $request->sort_by !== '') {
             switch ($request->sort_by) {
@@ -67,7 +75,7 @@ class TaskController extends Controller
             }
         } else {
             // Default sorting jika tidak dipilih
-            $query->orderBy('created_at', 'desc');
+            $query->orderBy('due_date', 'asc');
         }
         // Pagination dengan query string (agar filter tetap saat paging)
         $tasks = $query->paginate()->withQueryString();
