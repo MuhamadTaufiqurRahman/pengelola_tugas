@@ -17,7 +17,7 @@
             <div class="text-center mb-8">
                 <div class="inline-flex items-center justify-center mb-4">
                     <div class="flex items-center justify-center w-20 h-20 rounded-xl ">
-                        <img src="{{ asset('img/wt_logo.png') }}" class="" alt="Logo">
+                        <img src="{{ asset('img/logo.png') }}" class="" alt="Logo">
                     </div>
                 </div>
                 <h1 class="text-3xl font-bold text-gray-800">Task Manager</h1>
