@@ -82,15 +82,15 @@ class TaskController extends Controller
             }
         } else {
             // Default sorting jika tidak dipilih
-            $query->orderBy('due_date', 'asc')
-                ->orderByRaw("
+            $query->orderByRaw("
                     CASE priority
                         WHEN 3 THEN 2  -- High
                         WHEN 2 THEN 3  -- Medium
                         WHEN 1 THEN 4  -- Low
                         ELSE 5         -- Not Set
                     END ASC
-                ");
+                ")
+                ->orderBy('due_date', 'asc');
         }
         // Pagination dengan query string (agar filter tetap saat paging)
         $tasks = $query->paginate()->withQueryString();
