@@ -43,20 +43,15 @@ class TaskController extends Controller
             $query->where('created_by', $request->departement);
         }
 
-        // Always push status is completed to bottom
+        // Always push status is completed to bottom & priority sort by desc with sort due date asc
         $query->orderByRaw("
             CASE
                 WHEN status = 'completed' THEN 1
                 ELSE 0
             END
-        ");
-        // Always push priority is urgent to top
-        $query->orderByRaw("
-            CASE
-                WHEN priority = '4' THEN 0
-                ELSE 1
-            END
-        ");
+        ")
+            ->orderBy('priority', 'desc')
+            ->orderBy('due_date', 'asc');
 
         // SORTING - dengan handle jika kosong
         if ($request->filled('sort_by') && $request->sort_by !== '') {
@@ -80,18 +75,8 @@ class TaskController extends Controller
                     $query->orderBy('priority', 'asc');
                     break;
             }
-        } else {
-            // Default sorting jika tidak dipilih
-            $query->orderByRaw("
-                    CASE priority
-                        WHEN 3 THEN 2  -- High
-                        WHEN 2 THEN 3  -- Medium
-                        WHEN 1 THEN 4  -- Low
-                        ELSE 5         -- Not Set
-                    END ASC
-                ")
-                ->orderBy('due_date', 'asc');
         }
+
         // Pagination dengan query string (agar filter tetap saat paging)
         $tasks = $query->paginate()->withQueryString();
 
