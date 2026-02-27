@@ -43,11 +43,18 @@ class TaskController extends Controller
             $query->where('created_by', $request->departement);
         }
 
-        // Always push completed to bottom
+        // Always push status is completed to bottom
         $query->orderByRaw("
             CASE
                 WHEN status = 'completed' THEN 1
                 ELSE 0
+            END
+        ");
+        // Always push priority is urgent to top
+        $query->orderByRaw("
+            CASE
+                WHEN priority = '4' THEN 0
+                ELSE 1
             END
         ");
 
