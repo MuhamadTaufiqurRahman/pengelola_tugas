@@ -233,6 +233,9 @@
                                     In Progress</option>
                                 <option value="review" {{ request('status') == 'review' ? 'selected' : '' }}>Review
                                 </option>
+                                <option value="canceled" {{ request('status') == 'canceled' ? 'selected' : '' }}>
+                                    Canceled
+                                </option>
                                 <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>
                                     Completed</option>
                             </select>
