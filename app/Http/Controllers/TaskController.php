@@ -46,7 +46,7 @@ class TaskController extends Controller
         // Always push status is completed to bottom & priority sort by desc with sort due date asc
         $query->orderByRaw("
             CASE
-                WHEN status = 'completed' THEN 1
+                WHEN status IN ('completed','canceled') THEN 1
                 ELSE 0
             END
         ")

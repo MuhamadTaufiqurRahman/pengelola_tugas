@@ -122,16 +122,16 @@
                         <p class="text-yellow-600 text-sm">Review</p>
                     </div>
                 </div>
-                <div class="stat-card border-red-600">
-                    <div class="p-4 text-center">
-                        <div class="text-3xl font-bold text-red-600 mb-1">{{ $stats['canceled'] }}</div>
-                        <p class="text-red-600 text-sm">Canceled</p>
-                    </div>
-                </div>
                 <div class="stat-card border-green-500">
                     <div class="p-4 text-center">
                         <div class="text-3xl font-bold text-green-600 mb-1">{{ $stats['completed'] }}</div>
                         <p class="text-green-600 text-sm">Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card border-red-600">
+                    <div class="p-4 text-center">
+                        <div class="text-3xl font-bold text-red-600 mb-1">{{ $stats['canceled'] }}</div>
+                        <p class="text-red-600 text-sm">Canceled</p>
                     </div>
                 </div>
 
