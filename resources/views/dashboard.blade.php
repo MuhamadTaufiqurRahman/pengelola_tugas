@@ -100,7 +100,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
                 <div class="stat-card border-purple-500">
                     <div class="p-4 text-center">
-                        <div class="text-3xl font-bold text-purple-600 mb-1">{{ $tasks->total() }}</div>
+                        <div class="text-3xl font-bold text-purple-600 mb-1">{{ $stats['total'] }}</div>
                         <p class="text-purple-600 text-sm">Task Count</p>
                     </div>
                 </div>
@@ -348,7 +348,7 @@
 
             <div class="flex justify-between items-center">
                 <div class="text-sm text-black font-semibold">
-                    Total found: <span class="font-bold">{{ $tasks->total() }}</span> Task Entries
+                    Total found: <span class="font-bold">{{ $tasks->count() }}</span> Task Entries
                 </div>
             </div>
             </form>
