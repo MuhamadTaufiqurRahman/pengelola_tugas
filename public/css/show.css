@@ -47,10 +47,16 @@ body {
     color: #854D0E;
 }
 
+.status-canceled {
+    background: #524f4f;
+    color: #ffffff;
+}
+
 .status-completed {
     background: #e8f5e9;
     color: #27ae60;
 }
+
 
 .priority-badge {
     padding: 8px 20px;

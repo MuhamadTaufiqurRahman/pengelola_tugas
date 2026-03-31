@@ -340,6 +340,8 @@
                                             Progress</i>
                                     @elseif($task->status == 'review')
                                         <i class="bi bi-eye"> Review</i>
+                                    @elseif($task->status == 'canceled')
+                                        <i class="bi bi-x-circle"> Canceled</i>
                                     @else
                                         <i class="bi bi-check-circle"> Completed</i>
                                     @endif

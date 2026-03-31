@@ -87,6 +87,7 @@ class TaskController extends Controller
             'in_progress' => Task::where('status', 'in_progress')->count(),
             'completed' => Task::where('status', 'completed')->count(),
             'review' => Task::where('status', 'review')->count(),
+            'canceled' => Task::where('status', 'canceled')->count(),
             'my_tasks' => DB::table('task_user')
                 ->where('user_id', Auth::id())
                 ->count(),
@@ -124,7 +125,7 @@ class TaskController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'required|in:pending,in_progress,review,completed',
+            'status' => 'required|in:pending,in_progress,review,completed,canceled',
             'priority' => 'required|integer|min:1|max:4',
             'start_date' => 'nullable|date',
             'due_date' => 'nullable|date|after_or_equal:start_date',
@@ -200,7 +201,7 @@ class TaskController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'priority' => 'required|integer|in:1,2,3,4',
-            'status' => 'required|in:pending,in_progress,review,completed',
+            'status' => 'required|in:pending,in_progress,review,completed,canceled',
             'start_date' => 'nullable|date',
             'due_date' => 'nullable|date|after_or_equal:start_date',
             'departement_id' => 'required|exists:master_department,id',

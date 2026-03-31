@@ -127,6 +127,9 @@
                             <option value="completed"
                                 {{ old('status', $task->status) == 'completed' ? 'selected' : '' }}>Completed
                             </option>
+                            <option value="canceled"
+                                {{ old('status', $task->status) == 'canceled' ? 'selected' : '' }}>Canceled
+                            </option>
                         </select>
                         @error('status')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>

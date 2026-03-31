@@ -122,6 +122,12 @@
                         <p class="text-yellow-600 text-sm">Review</p>
                     </div>
                 </div>
+                <div class="stat-card border-red-600">
+                    <div class="p-4 text-center">
+                        <div class="text-3xl font-bold text-red-600 mb-1">{{ $stats['canceled'] }}</div>
+                        <p class="text-red-600 text-sm">Canceled</p>
+                    </div>
+                </div>
                 <div class="stat-card border-green-500">
                     <div class="p-4 text-center">
                         <div class="text-3xl font-bold text-green-600 mb-1">{{ $stats['completed'] }}</div>
@@ -360,8 +366,8 @@
         @else
             <!-- Tasks Table -->
             <div class="mb-8 bg-white text-black font-bold rounded-xl shadow-lg overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table id="tasks-table" class="w-full">
+                <div class="overflow-x-auto p-4">
+                    <table id="tasks-table" class"w-full">
                         <thead class="bg-gray-200">
                             <tr>
                                 <th class="py-4 px-6 text-xl text-center font-semibold">No</th>
@@ -432,6 +438,8 @@
                                         $statusColor = 'text-white bg-gray-400 border-gray-800';
                                     } elseif ($task->status == 'in_progress') {
                                         $statusColor = 'text-white bg-blue-600 border-blue-800';
+                                    } elseif ($task->status == 'canceled') {
+                                        $statusColor = 'text-white bg-red-600 border-red-600';
                                     } elseif ($task->status == 'review') {
                                         $statusColor = 'text-white bg-purple-600 border-purple-800';
                                     } elseif ($task->status == 'completed') {
@@ -485,6 +493,8 @@
                                                 Progress
                                             @elseif($task->status == 'review')
                                                 Review
+                                            @elseif($task->status == 'canceled')
+                                                Canceled
                                             @else
                                                 Completed
                                             @endif
@@ -556,6 +566,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="mt-4">
+                        {{ $tasks->links() }}
+                    </div>
                 </div>
             </div>
 
