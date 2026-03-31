@@ -78,7 +78,16 @@ class TaskController extends Controller
         }
 
         // Pagination dengan query string (agar filter tetap saat paging)
-        $tasks = $query->paginate()->withQueryString();
+        
+        // Ambil total data dulu
+        $totalData = $query->count();
+
+        // Pagination dengan jumlah = total data (tampilkan semua)
+        $tasks = $query->paginate($totalData)->withQueryString();
+        
+        // $tasks = $query->paginate()->withQueryString();
+        // Menjadi:
+        // $tasks = $query->get(); 
 
         // Stats (tidak terpengaruh filter)
         $stats = [

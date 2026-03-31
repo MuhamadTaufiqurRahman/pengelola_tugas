@@ -27,8 +27,8 @@ $(document).ready(function () {
         "searching": true,      // AKTIFKAN search DataTables
         "ordering": false,      // NONAKTIFKAN sorting DataTables
 
-        "paging": false,         // Pagination aktif
-        "info": false,           // Info aktif
+        "paging": true,         // Pagination aktif
+        "info": true,           // Info aktif
         "pageLength": 10,
         "lengthMenu": [10, 25, 50, 100],
         "responsive": true,
